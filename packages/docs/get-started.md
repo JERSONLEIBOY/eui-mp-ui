@@ -24,6 +24,7 @@ import "eui-ele/dist/index.css";
 import App from './App.vue'
 // 全局使用
 createApp(App).use(EuiElement).mount('#app')
+```
 
 ```vue
 <template>
