@@ -159,10 +159,6 @@ importers:
   packages/hooks: {}
 
   packages/play:
-    dependencies:
-      vue:
-        specifier: ^3.4.21
-        version: 3.4.27(typescript@5.4.5)
     devDependencies:
       '@chromatic-com/storybook':
         specifier: 1.4.0
@@ -194,15 +190,6 @@ importers:
       storybook:
         specifier: ^8.1.2
         version: 8.1.2(@babel/preset-env@7.24.5(@babel/core@7.24.5))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      typescript:
-        specifier: ^5.2.2
-        version: 5.4.5
-      vite:
-        specifier: ^5.2.0
-        version: 5.2.11(@types/node@20.12.12)
-      vue-tsc:
-        specifier: ^2.0.6
-        version: 2.0.19(typescript@5.4.5)
 
   packages/theme: {}
 
@@ -5659,12 +5646,6 @@ packages:
 
   vue-tsc@1.8.27:
     resolution: {integrity: sha512-WesKCAZCRAbmmhuGl3+VrdWItEvfoFIPXOvUJkjULi+x+6G/Dy69yO3TBRJDr9eUlmsNAwVmxsNZxvHKzbkKdg==}
-    hasBin: true
-    peerDependencies:
-      typescript: '*'
-
-  vue-tsc@2.0.19:
-    resolution: {integrity: sha512-JWay5Zt2/871iodGF72cELIbcAoPyhJxq56mPPh+M2K7IwI688FMrFKc/+DvB05wDWEuCPexQJ6L10zSwzzapg==}
     hasBin: true
     peerDependencies:
       typescript: '*'
@@ -12189,13 +12170,6 @@ snapshots:
     dependencies:
       '@volar/typescript': 1.11.1
       '@vue/language-core': 1.8.27(typescript@5.4.5)
-      semver: 7.6.2
-      typescript: 5.4.5
-
-  vue-tsc@2.0.19(typescript@5.4.5):
-    dependencies:
-      '@volar/typescript': 2.2.4
-      '@vue/language-core': 2.0.19(typescript@5.4.5)
       semver: 7.6.2
       typescript: 5.4.5
 
