@@ -35,14 +35,19 @@ export default defineConfig({
     })
   ],
   build: {
+    // 指定输出路径
     outDir: "dist/es",
+    // 构建为库
     lib: {
       entry: resolve(__dirname, "./index.ts"),
-      name: "ToyElement",
-      fileName: "eui-ele",
+      name: "EuiMpUi",
+      // fileName 是输出的包文件名
+      fileName: "eui-mp-ui",
       formats: ["es"]
     },
+    // 自定义底层的 Rollup 打包配置
     rollupOptions: {
+      // 该选项用于匹配需要排除在 bundle 外部的模块
       external: [
         "vue",
         "@fortawesome/fontawesome-svg-core",
