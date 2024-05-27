@@ -3,7 +3,7 @@ import type { Ref } from "vue";
 export type CollapseItemName = string | number;
 
 export interface CollapseProps {
-  modeValue: CollapseItemName[];
+  modelValue: CollapseItemName[];
   accordion?: boolean;
 }
 

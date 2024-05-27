@@ -21,7 +21,7 @@ describe("Collapse.vue", () => {
   beforeAll(() => {
     wrapper = mount(
       () => (
-        <Collapse modeValue={["a"]} {...{ onChange }}>
+        <Collapse modelValue={["a"]} {...{ onChange }}>
           <CollapseItem name="a" title="title a">
             content a
           </CollapseItem>
@@ -106,7 +106,7 @@ describe("Collapse.vue", () => {
   test("手风琴模式", async () => {
     wrapper = mount(
       () => (
-        <Collapse accordion modeValue={["a"]} {...{ onChange }}>
+        <Collapse accordion modelValue={["a"]} {...{ onChange }}>
           <CollapseItem name="a" title="title a">
             content a
           </CollapseItem>
@@ -142,7 +142,7 @@ describe("Collapse.vue", () => {
   test("手风琴模式 错误处理", () => {
     wrapper = mount(
       () => (
-        <Collapse accordion modeValue={["a", "b"]} {...{ onChange }}>
+        <Collapse accordion modelValue={["a", "b"]} {...{ onChange }}>
           <CollapseItem name="a" title="title a">
             content a
           </CollapseItem>

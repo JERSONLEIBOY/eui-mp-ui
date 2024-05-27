@@ -1,15 +1,15 @@
 <script setup lang="ts">
-// import { type CollapseItemName } from "eui-mp-ui"
-// import { ref } from "vue";
-// const activeNames = ref(["1"]);
-// function handleChange(val: CollapseItemName[]) {
-//   console.log(val);
-// }
+import { type CollapseItemName } from "eui-mp-ui"
+import { ref } from "vue";
+const activeNames = ref(["1"]);
+function handleChange(val: CollapseItemName[]) {
+  console.log(val);
+}
 </script>
 
 <template>
   <er-button type="primary" size="large">Hello</er-button>
-  <!-- <er-collapse v-model="activeNames" @change="handleChange">
+  <er-collapse v-model="activeNames" @change="handleChange">
     <er-collapse-item title="Consistency" name="1">
       <div>
         Consistent with real life: in line with the process and logic of real
@@ -53,7 +53,7 @@
         including canceling, aborting or terminating current operation.
       </div>
     </er-collapse-item>
-  </er-collapse> -->
+  </er-collapse>
 </template>
 
 <style scoped>

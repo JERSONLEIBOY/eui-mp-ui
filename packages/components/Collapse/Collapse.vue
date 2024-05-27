@@ -15,7 +15,7 @@ defineOptions({
 })
 const props =defineProps<CollapseProps>();
 const emits = defineEmits<CollapseEmits>();
-const activeNames = ref(props.modeValue);
+const activeNames = ref<CollapseItemName[]>(props.modelValue);
 
 if (props.accordion && activeNames.value.length > 1) {
   console.warn("accordion mode should only have one active item");
@@ -44,7 +44,7 @@ function handleItemClick(item: CollapseItemName) {
   updateActiveNames(_activeName);
 }
 
-watch(() => props.modeValue, (newNames) => {
+watch(() => props.modelValue, (newNames) => {
   updateActiveNames(newNames);
 })
 

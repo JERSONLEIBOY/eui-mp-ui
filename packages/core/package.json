@@ -9,13 +9,13 @@
   "sideEffects": [
     "./dist/index.css"
   ],
-  "main": "./dist/umd/eui-ele.umd.cjs",
-  "module": "./dist/es/eui-ele.js",
+  "main": "./dist/umd/eui-mp-ui.umd.cjs",
+  "module": "./dist/es/eui-mp-ui.js",
   "types": "./dist/types/core/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/es/eui-ele.js",
-      "require": "./dist/umd/eui-ele.umd.cjs",
+      "import": "./dist/es/eui-mp-ui.js",
+      "require": "./dist/umd/eui-mp-ui.umd.cjs",
       "types": "./dist/types/core/index.d.ts"
     },
     "./dist/": {
