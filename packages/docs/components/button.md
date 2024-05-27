@@ -22,3 +22,19 @@ prev:
 ::: preview
 demo-preview=../demo/button/Basic.vue
 :::
+
+## 禁用状态
+
+你可以使用 `disabled` 属性来定义按钮是否被禁用。
+
+::: preview
+demo-preview=../demo/button/Disabled.vue
+:::
+
+## 图标按钮
+
+使用 `icon`属性来定义按钮的图标。
+
+::: preview
+demo-preview=../demo/button/Icon.vue
+:::
