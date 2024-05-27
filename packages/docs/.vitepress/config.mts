@@ -30,11 +30,11 @@ export default defineConfig({
         items: [
           {
             text: "Button 按钮",
-            link: "../components/button.md"
+            link: "components/button.md"
           },
           {
             text: "Collapse 折叠面板",
-            link: "../components/collapse.md"
+            link: "components/collapse.md"
           }
         ]
       }
