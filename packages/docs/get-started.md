@@ -1,7 +1,7 @@
 ---
 search: false
 next:
-  link:
+  link: /components/button
   text: Button 按钮
 ---
 # 最新 Vue3 + TS 高仿 Element-Plus 打造自己的组件库
@@ -9,7 +9,7 @@ next:
 ## 安装
 
 ```bash
-  npm i eui-ele --save
+  npm i eui-mp-ui --save
 ```
 
 ## 开始使用
@@ -18,9 +18,9 @@ next:
 
 ```js
 // 引入所有组件
-import EuiElement from "eui-ele";
+import EuiElement from "eui-mp-ui";
 // 引入样式
-import "eui-ele/dist/index.css";
+import "eui-mp-ui/dist/index.css";
 import App from './App.vue'
 // 全局使用
 createApp(App).use(EuiElement).mount('#app')
@@ -34,14 +34,14 @@ createApp(App).use(EuiElement).mount('#app')
 
 **单个导入**
 
-Eui-ele 提供了基于 ES Module 的开箱即用的 Tree Shaking 功能。
+Eui-Mp-Ui 提供了基于 ES Module 的开箱即用的 Tree Shaking 功能。
 
 ```vue
 <template>
   <er-button>我是 Button</er-button>
 </template>
 <script>
-  import { ErButton } from ' eui-element'
+  import { ErButton } from ' eui-mp-ui'
   export default {
     components: { ErButton },
   }
