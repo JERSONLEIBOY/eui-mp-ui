@@ -1,10 +1,12 @@
 import { defineConfig } from "vite";
-
 import vue from "@vitejs/plugin-vue";
-
 import { resolve } from "path";
-
 import dts from "vite-plugin-dts";
+import { readFileSync } from "fs";
+import shell from "shelljs";
+import { delay } from "lodash-es";
+import hooks from "./hooksPlugin";
+import terser from "@rollup/plugin-terser";
 
 const COMP_NAMES = [
   "Alert",
@@ -26,17 +28,67 @@ const COMP_NAMES = [
   "Upload",
 ] as const;
 
+const TRY_MOVE_STYLES_DELAY = 800 as const;
+
+const isProd = process.env.NODE_ENV === "production";
+const isDev = process.env.NODE_ENV === "development";
+const isTest = process.env.NODE_ENV === "test";
+
+function moveStyles() {
+  try {
+    readFileSync("./dist/es/theme");
+    shell.mv("./dist/es/theme", "./dist");
+  } catch (error) {
+    delay(moveStyles, TRY_MOVE_STYLES_DELAY)
+  }
+}
+
+
 export default defineConfig({
   plugins: [
     vue(),
     dts({
       tsconfigPath: "../../tsconfig.build.json",
       outDir: "dist/types"
+    }),
+    terser({
+      compress: {
+        sequences: isProd,
+        arguments: isProd,
+        drop_console: isProd && ["log"],
+        drop_debugger: isProd,
+        passes: isProd ? 4 : 1,
+        global_defs: {
+          "@DEV": JSON.stringify(isDev),
+          "@PROD": JSON.stringify(isProd),
+          "@TEST": JSON.stringify(isTest),
+        },
+      },
+      format: {
+        semicolons: false,
+        shorthand: isProd,
+        braces: !isProd,
+        beautify: !isProd,
+        comments: !isProd,
+      },
+      mangle: {
+        toplevel: isProd,
+        eval: isProd,
+        keep_classnames: isDev,
+        keep_fnames: isDev,
+      }
+    }),
+    hooks({
+      rmFiles: ["./dist/es", "./dist/theme", "./dist/types"],
+      afterBuild: moveStyles,
     })
   ],
   build: {
     // 指定输出路径
     outDir: "dist/es",
+    minify: false,
+    cssCodeSplit: true,
+    sourcemap: !isProd,
     // 构建为库
     lib: {
       entry: resolve(__dirname, "./index.ts"),
@@ -61,6 +113,9 @@ export default defineConfig({
           if (chunkInfo.name === "style.css") {
             return "index.css";
           }
+          if (chunkInfo.type === "asset" && /\.(css)$/i.test(chunkInfo.name as string)) {
+            return "theme/[name].[ext]";
+          }
           return chunkInfo.name as string;
         },
         manualChunks(id) {
@@ -70,7 +125,7 @@ export default defineConfig({
           if (id.includes("/packages/hooks")) {
             return "hooks";
           }
-          if (id.includes("/packages/utils")) {
+          if (id.includes("/packages/utils") || id.includes("plugin-vue:export-helper")) {
             return "utils";
           }
           for (const item of COMP_NAMES) {
