@@ -8,8 +8,9 @@
     "story": "pnpm run build && pnpm --filter @eui-mp-ui/play storybook",
     "docs:dev": "pnpm --filter @eui-mp-ui/docs dev",
     "docs:build": "pnpm --filter @eui-mp-ui/docs build",
-    "test": "pnpm --filter @eui-mp-ui/components test",
-    "build": "pnpm --filter eui-mp-ui build"
+    "test": "cross-env NODE_ENV=test pnpm --filter @eui-mp-ui/components test",
+    "build": "cross-env NODE_ENV=production pnpm --filter eui-mp-ui build",
+    "build:dev": "cross-env NODE_ENV=development pnpm --filter eui-mp-ui build:watch"
   },
   "keywords": [],
   "author": "",
