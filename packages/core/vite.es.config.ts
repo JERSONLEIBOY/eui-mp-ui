@@ -2,9 +2,9 @@ import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 import { resolve } from "path";
 import dts from "vite-plugin-dts";
-import { readdirSync } from "fs";
+import { readdirSync, readdir } from "fs";
 import shell from "shelljs";
-import { delay } from "lodash-es";
+import { delay, defer } from "lodash-es";
 import hooks from "./hooksPlugin";
 import terser from "@rollup/plugin-terser";
 
@@ -35,13 +35,10 @@ const isDev = process.env.NODE_ENV === "development";
 const isTest = process.env.NODE_ENV === "test";
 
 function moveStyles() {
-  try {
-    readdirSync("./dist/es/theme");
-    shell.mv("./dist/es/theme", "./dist");
-  } catch (error) {
-    console.log('请求错误重新执行')
-    delay(moveStyles, TRY_MOVE_STYLES_DELAY)
-  }
+  readdir("./dist/es/theme", (err) => {
+    if (err) return delay(moveStyles, TRY_MOVE_STYLES_DELAY);
+    defer(() => shell.mv("./dist/es/theme", "./dist"));
+  });
 }
 
 

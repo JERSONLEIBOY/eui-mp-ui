@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "pnpm run build && pnpm --filter @eui-mp-ui/play dev",
-    "story": "pnpm run build && pnpm --filter @eui-mp-ui/play storybook",
+    "dev": "pnpm --filter @eui-mp-ui/play dev",
+    "story": "pnpm --filter @eui-mp-ui/play storybook",
     "docs:dev": "pnpm --filter @eui-mp-ui/docs dev",
     "docs:build": "pnpm --filter @eui-mp-ui/docs build",
     "test": "cross-env NODE_ENV=test pnpm --filter @eui-mp-ui/components test",
