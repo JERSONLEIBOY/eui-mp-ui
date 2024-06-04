@@ -2,7 +2,7 @@ import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 import { resolve } from "path";
 import dts from "vite-plugin-dts";
-import { readFileSync } from "fs";
+import { readdirSync } from "fs";
 import shell from "shelljs";
 import { delay } from "lodash-es";
 import hooks from "./hooksPlugin";
@@ -36,9 +36,10 @@ const isTest = process.env.NODE_ENV === "test";
 
 function moveStyles() {
   try {
-    readFileSync("./dist/es/theme");
+    readdirSync("./dist/es/theme");
     shell.mv("./dist/es/theme", "./dist");
   } catch (error) {
+    console.log('请求错误重新执行')
     delay(moveStyles, TRY_MOVE_STYLES_DELAY)
   }
 }
