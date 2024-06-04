@@ -35,6 +35,20 @@ export default defineConfig({
           {
             text: "Collapse 折叠面板",
             link: "components/collapse.md"
+          },
+          {
+            text: "Dropdown 下拉菜单",
+            link: "components/dropdown.md"
+          }
+        ]
+      },
+      {
+        text: "反馈组件",
+        collapsed: false,
+        items: [
+          {
+            text: "Alert 提示",
+            link: "components/alert.md"
           }
         ]
       }
