@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/vue3";
 import { ErCollapse, ErCollapseItem } from "eui-mp-ui";
-
+import "eui-mp-ui/dist/theme/Collapse.css";
 type Story = StoryObj<typeof ErCollapse>;
 
 const meta: Meta<typeof ErCollapse> = {
