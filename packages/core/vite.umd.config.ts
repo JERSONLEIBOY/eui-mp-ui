@@ -44,7 +44,7 @@ export default defineConfig({
       }
     }),
     hooks({
-      rmFiles: ["./dist/umd", "./dist/index.css", "./dist/index.css.gz"],
+      rmFiles: ["./dist/umd", "./dist/index.css"],
       afterBuild: moveStyles,
     })
   ],

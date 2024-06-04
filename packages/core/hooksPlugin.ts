@@ -6,9 +6,9 @@ export default function customHooksPlugin({
   afterBuild,
   beforeBuild,
 }: {
-  beforeBuild?: Function;
-  afterBuild?: Function;
   rmFiles?: string[];
+  afterBuild?: Function;
+  beforeBuild?: Function;
 }) {
   return {
     name: "custom-hooks-plugin",

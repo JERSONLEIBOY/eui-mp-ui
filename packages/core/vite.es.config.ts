@@ -51,6 +51,10 @@ export default defineConfig({
       tsconfigPath: "../../tsconfig.build.json",
       outDir: "dist/types"
     }),
+    hooks({
+      rmFiles: ["./dist/es", "./dist/theme", "./dist/types"],
+      afterBuild: moveStyles,
+    }),
     terser({
       compress: {
         sequences: isProd,
@@ -78,17 +82,12 @@ export default defineConfig({
         keep_fnames: isDev,
       }
     }),
-    hooks({
-      rmFiles: ["./dist/es", "./dist/theme", "./dist/types"],
-      afterBuild: moveStyles,
-    })
   ],
   build: {
     // 指定输出路径
     outDir: "dist/es",
     minify: false,
     cssCodeSplit: true,
-    sourcemap: !isProd,
     // 构建为库
     lib: {
       entry: resolve(__dirname, "./index.ts"),

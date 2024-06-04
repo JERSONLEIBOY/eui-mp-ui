@@ -3,6 +3,7 @@ import { fn, within, userEvent, expect, clearAllMocks } from "@storybook/test";
 import { set } from "lodash-es";
 
 import { ErButton, ErButtonGroup } from "eui-mp-ui";
+import "eui-mp-ui/dist/theme/Button.css";
 
 type Story = StoryObj<typeof ErButton> & { argTypes?: ArgTypes };
 
