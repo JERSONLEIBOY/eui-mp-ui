@@ -3,12 +3,12 @@ import shell from "shelljs";
 
 export default function customHooksPlugin({
   rmFiles = [],
-  afterBuild,
   beforeBuild,
+  afterBuild,
 }: {
   rmFiles?: string[];
-  afterBuild?: Function;
   beforeBuild?: Function;
+  afterBuild?: Function;
 }) {
   return {
     name: "custom-hooks-plugin",
