@@ -142,7 +142,7 @@ describe("Collapse.vue", () => {
   test("手风琴模式 错误处理", () => {
     wrapper = mount(
       () => (
-        <Collapse accordion modelValue={["a", "b"]} {...{ onChange }}>
+        <Collapse accordion modelValue={["a"]} {...{ onChange }}>
           <CollapseItem name="a" title="title a">
             content a
           </CollapseItem>

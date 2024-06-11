@@ -8,7 +8,6 @@
 import { provide, ref, watch, watchEffect } from 'vue';
 import type { CollapseEmits, CollapseItemName, CollapseProps } from './types';
 import { COLLAPSE_CTX_KEY } from "./constants";
-import { each } from "lodash-es";
 import { debugWarn } from "@eui-mp-ui/utils"
 
 const COMPONENT_NAME = "ErCollapse" as const;
@@ -21,9 +20,8 @@ const activeNames = ref<CollapseItemName[]>(props.modelValue);
 
 function updateActiveNames(newNames: CollapseItemName[]) {
   activeNames.value = newNames;
-  each(["update:modelValue", "change"], (e) => {
-    emits(e as "update:modelValue" & "change", newNames)
-  })
+  emits("update:modelValue", newNames);
+  emits("change", newNames);
 }
 
 function handleItemClick(item: CollapseItemName) {
