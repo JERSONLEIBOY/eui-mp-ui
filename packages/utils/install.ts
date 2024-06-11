@@ -8,7 +8,7 @@ export function makeInstaller(components: Plugin[]) {
   const install = (app: App) => each(components, (c) => {
     app.use(c);
   });
-  return install;
+  return install as Plugin;
 }
 
 export const withInstall = <T>(component: T) => {

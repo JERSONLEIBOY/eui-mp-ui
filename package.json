@@ -8,9 +8,12 @@
     "story": "pnpm --filter @eui-mp-ui/play storybook",
     "docs:dev": "pnpm --filter @eui-mp-ui/docs dev",
     "docs:build": "pnpm --filter @eui-mp-ui/docs build",
-    "test": "cross-env NODE_ENV=test pnpm --filter @eui-mp-ui/components test",
+    "test": "run-p test-utils test-comp",
+    "test-comp": "cross-env NODE_ENV=test pnpm --filter @eui-mp-ui/components test",
+    "test-utils": "cross-env NODE_ENV=test pnpm --filter @eui-mp-ui/utils test",
     "build": "cross-env NODE_ENV=production pnpm --filter eui-mp-ui build",
-    "build:dev": "cross-env NODE_ENV=development pnpm --filter eui-mp-ui build:watch"
+    "build:dev": "cross-env NODE_ENV=development pnpm --filter eui-mp-ui build:watch",
+    "release": "pnpm --filter eui-mp-ui release"
   },
   "keywords": [],
   "author": "",
@@ -34,17 +37,23 @@
     "postcss-each-variables": "^0.3.0",
     "postcss-for": "^2.1.1",
     "postcss-nested": "^6.0.1",
+    "prettier": "^3.2.5",
     "release-it": "^17.2.1",
+    "rollup": "^4.18.0",
     "shelljs": "^0.8.5",
     "typescript": "^5.2.2",
     "vite": "^5.1.4",
     "vitest": "^1.4.0",
-    "vue-tsc": "^1.8.27"
+    "vue-tsc": "^1.8.27",
+    "vite-plugin-dts": "^3.9.1"
   },
   "dependencies": {
     "@eui-mp-ui/hooks": "workspace:*",
     "@eui-mp-ui/theme": "workspace:*",
     "@eui-mp-ui/utils": "workspace:*",
+    "@vitest/coverage-v8": "^1.4.0",
+    "@vue/test-utils": "^2.4.5",
+    "jsdom": "^24.0.0",
     "eui-mp-ui": "workspace:*",
     "lodash-es": "^4.17.21",
     "vue": "^3.4.19"
