@@ -6,6 +6,5 @@ export const typeIconMap = new Map([
   ["error", "circle-xmark"],
 ]);
 
-
-export * from "./install"
-export * from "./error"
+export * from "./install";
+export * from "./error";
