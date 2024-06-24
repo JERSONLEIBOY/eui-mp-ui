@@ -5,12 +5,8 @@ const activeNames = ref(['1'])
 </script>
 
 <template>
-  <er-collapse v-model="activeNames" accordion>
-    <er-collapse-item name="1">
-      <template #title>
-        <span style="color: var(--er-color-danger)"> Consistency </span>
-        <er-icon icon="question-circle" />
-      </template>
+  <er-collapse v-model="activeNames">
+    <er-collapse-item title="Consistency" name="1">
       <div>
         Consistent with real life: in line with the process and logic of real
         life, and comply with languages and habits that the users are used to;
@@ -20,7 +16,7 @@ const activeNames = ref(['1'])
         design style, icons and texts, position of elements, etc.
       </div>
     </er-collapse-item>
-    <er-collapse-item title="Feedback" name="2">
+    <er-collapse-item title="Feedback" name="2" disabled>
       <div>
         Operation feedback: enable the users to clearly perceive their
         operations by style updates and interactive effects;
@@ -30,7 +26,7 @@ const activeNames = ref(['1'])
         elements of the page.
       </div>
     </er-collapse-item>
-    <er-collapse-item title="Efficiency" name="3">
+    <er-collapse-item title="Efficiency" name="3" disabled>
       <div>
         Simplify the process: keep operating process simple and intuitive;
       </div>
