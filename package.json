@@ -12,6 +12,8 @@
     "test-comp": "cross-env NODE_ENV=test pnpm --filter @eui-mp-ui/components test",
     "test-utils": "cross-env NODE_ENV=test pnpm --filter @eui-mp-ui/utils test",
     "build": "cross-env NODE_ENV=production pnpm --filter eui-mp-ui build",
+    "build-comp": "cross-env NODE_ENV=production pnpm --filter eui-mp-ui build",
+    "build-hooks": "cross-env NODE_ENV=production pnpm --filter @eui-mp-ui/hooks build",
     "build:dev": "cross-env NODE_ENV=development pnpm --filter eui-mp-ui build:watch",
     "release": "pnpm --filter eui-mp-ui release"
   },
@@ -51,6 +53,7 @@
     "@eui-mp-ui/hooks": "workspace:*",
     "@eui-mp-ui/theme": "workspace:*",
     "@eui-mp-ui/utils": "workspace:*",
+    "@eui-mp-ui/vite-plugins": "workspace:*",
     "@vitest/coverage-v8": "^1.4.0",
     "@vue/test-utils": "^2.4.5",
     "jsdom": "^24.0.0",
