@@ -2,7 +2,7 @@ import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 import { compression } from "vite-plugin-compression2";
 import { resolve } from "path";
-import { readdirSync, readFile } from "fs";
+import { readFile } from "fs";
 import shell from "shelljs";
 import { delay, defer } from "lodash-es";
 import hooks from "./hooksPlugin";
