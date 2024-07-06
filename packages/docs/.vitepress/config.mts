@@ -49,7 +49,11 @@ export default defineConfig({
           {
             text: "Alert 提示",
             link: "components/alert.md"
-          }
+          },
+          {
+            text: "Tooltip 文字提示",
+            link: "components/tooltip"
+          },
         ]
       }
     ],
