@@ -5,7 +5,7 @@ import { resolve } from "path";
 import { readFile } from "fs";
 import shell from "shelljs";
 import { delay, defer } from "lodash-es";
-import hooks from "./hooksPlugin";
+import hooks from "../hooksPlugin";
 import terser from "@rollup/plugin-terser";
 
 
@@ -49,7 +49,7 @@ export default defineConfig({
   build: {
     outDir: "dist/umd",
     lib: {
-      entry: resolve(__dirname, "./index.ts"),
+      entry: resolve(__dirname, "../index.ts"),
       name: "EuiMpUi",
       fileName: "eui-mp-ui",
       formats: ["umd"]

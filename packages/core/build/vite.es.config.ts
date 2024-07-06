@@ -5,7 +5,7 @@ import dts from "vite-plugin-dts";
 import { readdir } from "fs";
 import shell from "shelljs";
 import { delay, defer } from "lodash-es";
-import hooks from "./hooksPlugin";
+import hooks from "../hooksPlugin";
 import terser from "@rollup/plugin-terser";
 
 const COMP_NAMES = [
@@ -88,7 +88,7 @@ export default defineConfig({
     cssCodeSplit: true,
     // 构建为库
     lib: {
-      entry: resolve(__dirname, "./index.ts"),
+      entry: resolve(__dirname, "../index.ts"),
       name: "EuiMpUi",
       // fileName 是输出的包文件名
       fileName: "eui-mp-ui",

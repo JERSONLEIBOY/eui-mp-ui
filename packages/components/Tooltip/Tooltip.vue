@@ -1,37 +1,10 @@
-<template>
-  <div class="er-tooltip" ref="containerNode" v-on="outerEvents">
-    <div
-      class="er-tooltip__trigger"
-      ref="_triggerNode"
-      v-on="events"
-      v-if="!virtualTriggering"
-    >
-      <slot></slot>
-    </div>
-    <slot name="default" v-else></slot>
-
-    <transition :name="transition" @after-leave="destroyPopperInstance">
-      <div
-        class="er-tooltip__popper"
-        ref="popperNode"
-        v-on="dropdownEvents"
-        v-if="visible"
-      >
-        <slot name="content">
-          {{ content }}
-        </slot>
-        <div id="arrow" data-popper-arrow></div>
-      </div>
-    </transition>
-  </div>
-</template>
-
 <script setup lang="ts">
 import type { TooltipProps, TooltipEmits, TooltipInstance } from "./types";
 import { createPopper, type Instance } from "@popperjs/core";
 import { bind, debounce, type DebouncedFunc } from "lodash-es";
-import { computed, ref, watch, type Ref, watchEffect, onUnmounted } from "vue";
+import { ref, watchEffect, watch, computed, onUnmounted, type Ref } from "vue";
 import { useClickOutside } from "@eui-mp-ui/hooks";
+
 import useEventsToTiggerNode from "./useEventsToTiggerNode";
 
 interface _TooltipProps extends TooltipProps {
@@ -40,16 +13,15 @@ interface _TooltipProps extends TooltipProps {
 }
 
 defineOptions({
-  name: "ErTooltip"
-})
-
+  name: "ErTooltip",
+});
 const props = withDefaults(defineProps<_TooltipProps>(), {
   placement: "bottom",
   trigger: "hover",
   transition: "fade",
   showTimeout: 0,
   hideTimeout: 200,
-})
+});
 
 const emits = defineEmits<TooltipEmits>();
 const visible = ref(false);
@@ -67,7 +39,7 @@ const triggerNode = computed(() => {
     return (props.virtualRef as HTMLElement) ?? _triggerNode.value;
   }
   return _triggerNode.value as HTMLElement;
-})
+});
 
 const popperOptions = computed(() => ({
   placement: props.placement,
@@ -197,7 +169,7 @@ watchEffect(() => {
   }
   openDebounce = debounce(bind(setVisible, null, true), openDelay.value);
   closeDebounce = debounce(bind(setVisible, null, false), closeDelay.value);
-})
+});
 
 useClickOutside(containerNode, () => {
   emits("click-outside");
@@ -213,13 +185,41 @@ useEventsToTiggerNode(props, triggerNode, events, () => {
 
 onUnmounted(() => {
   destroyPopperInstance();
-})
+});
 
 defineExpose<TooltipInstance>({
   show,
   hide,
-})
+});
 </script>
+
+<template>
+  <div class="er-tooltip" ref="containerNode" v-on="outerEvents">
+    <div
+      class="er-tooltip__trigger"
+      ref="_triggerNode"
+      v-on="events"
+      v-if="!virtualTriggering"
+    >
+      <slot></slot>
+    </div>
+    <slot name="default" v-else></slot>
+
+    <transition :name="transition" @after-leave="destroyPopperInstance">
+      <div
+        class="er-tooltip__popper"
+        ref="popperNode"
+        v-on="dropdownEvents"
+        v-if="visible"
+      >
+        <slot name="content">
+          {{ content }}
+        </slot>
+        <div id="arrow" data-popper-arrow></div>
+      </div>
+    </transition>
+  </div>
+</template>
 
 <style scoped>
 @import "./style.css";

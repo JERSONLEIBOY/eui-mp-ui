@@ -3,7 +3,7 @@ import {
   defineComponent,
   h,
   watch
-} from "./chunk-DZZU5PGB.js";
+} from "./chunk-GTUQUBAM.js";
 import {
   config$1,
   icon,
@@ -11,7 +11,7 @@ import {
   text
 } from "./chunk-3UHX34MA.js";
 
-// ../../node_modules/.pnpm/@fortawesome+vue-fontawesome@3.0.8_@fortawesome+fontawesome-svg-core@6.5.2_vue@3.4.30_typescript@5.5.2_/node_modules/@fortawesome/vue-fontawesome/index.es.js
+// ../../node_modules/.pnpm/@fortawesome+vue-fontawesome@3.0.8_@fortawesome+fontawesome-svg-core@6.5.2_vue@3.4.31/node_modules/@fortawesome/vue-fontawesome/index.es.js
 function ownKeys(e, r) {
   var t = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
