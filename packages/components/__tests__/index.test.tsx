@@ -18,7 +18,7 @@ const comps = [
   ErCollapse,
   ErCollapseItem,
   ErIcon,
-  ErTooltip,
+  ErTooltip
 ] as Plugin[];
 
 describe("components/index", () => {
