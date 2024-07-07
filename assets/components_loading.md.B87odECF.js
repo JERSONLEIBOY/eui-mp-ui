@@ -1,0 +1,1 @@
+import{_ as e,a as t,o}from"./chunks/framework.9XxDIKeK.js";const l=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"components/loading.md","filePath":"components/loading.md"}'),a={name:"components/loading.md"};function n(s,r,c,d,i,p){return o(),t("div")}const _=e(a,[["render",n]]);export{l as __pageData,_ as default};
