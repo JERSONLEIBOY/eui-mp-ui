@@ -1,7 +1,7 @@
 import { describe, test, it, expect, vi, beforeEach } from "vitest";
 import { withInstall } from "@eui-mp-ui/utils";
 import { mount } from "@vue/test-utils";
-import { ErTooltip } from ".";
+import { ErTooltip } from "./index";
 
 import Tooltip from "./Tooltip.vue";
 
